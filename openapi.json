@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.3",
     "info": {
-        "title": "extract",
+        "title": "extractplus",
         "version": "0.0.1",
         "description": "Extract archive from the web interface",
         "license": {
@@ -164,7 +164,7 @@
         }
     },
     "paths": {
-        "/ocs/v2.php/apps/extract/api/{apiVersion}/extraction/execute": {
+        "/ocs/v2.php/apps/extractplus/api/{apiVersion}/extraction/execute": {
             "post": {
                 "operationId": "extraction-execute",
                 "summary": "The only AJAX callback. This is a hook for ordinary cloud-users, os no admin required",
@@ -320,7 +320,7 @@
                 }
             }
         },
-        "/ocs/v2.php/apps/extract/api/{apiVersion}/extraction/progress/{jobId}": {
+        "/ocs/v2.php/apps/extractplus/api/{apiVersion}/extraction/progress/{jobId}": {
             "get": {
                 "operationId": "extraction-progress",
                 "summary": "Current state of a running extraction.",

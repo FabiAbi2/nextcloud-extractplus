@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "شىفىرلاش تېخى قوللىمايدۇ",
     "File not found" : "ھۆججەت تېپىلمىدى",

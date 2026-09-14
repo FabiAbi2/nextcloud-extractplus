@@ -18,7 +18,7 @@ export interface ProgressState {
 	error: string
 }
 
-const STYLE_ID = 'extract-progress-dialog-style'
+const STYLE_ID = 'extractplus-progress-dialog-style'
 
 /*
  * Styles live here instead of in a stylesheet so the dialog stays a single
@@ -29,7 +29,7 @@ const STYLE_ID = 'extract-progress-dialog-style'
  * theme (including dark mode and custom primary colours) without knowing about it.
  */
 const STYLES = `
-.extract-progress-dialog {
+.extractplus-progress-dialog {
 	border: none;
 	border-radius: var(--border-radius-large, 12px);
 	padding: 0;
@@ -40,37 +40,37 @@ const STYLES = `
 	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
 }
 
-.extract-progress-dialog::backdrop {
+.extractplus-progress-dialog::backdrop {
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
-.extract-progress-dialog__content {
+.extractplus-progress-dialog__content {
 	padding: 20px;
 	display: flex;
 	flex-direction: column;
 	gap: 12px;
 }
 
-.extract-progress-dialog__title {
+.extractplus-progress-dialog__title {
 	margin: 0;
 	font-size: 1.15em;
 	font-weight: bold;
 }
 
-.extract-progress-dialog__archive {
+.extractplus-progress-dialog__archive {
 	margin: 0;
 	color: var(--color-text-maxcontrast, #6b6b6b);
 	overflow-wrap: anywhere;
 }
 
-.extract-progress-dialog__track {
+.extractplus-progress-dialog__track {
 	height: 6px;
 	border-radius: 3px;
 	background-color: var(--color-background-dark, #ededed);
 	overflow: hidden;
 }
 
-.extract-progress-dialog__bar {
+.extractplus-progress-dialog__bar {
 	height: 100%;
 	width: 0;
 	border-radius: 3px;
@@ -79,28 +79,28 @@ const STYLES = `
 }
 
 /* Phases without a measurable percentage slide instead of filling up. */
-.extract-progress-dialog__bar--indeterminate {
+.extractplus-progress-dialog__bar--indeterminate {
 	width: 35% !important;
 	transition: none;
-	animation: extract-progress-slide 1.4s ease-in-out infinite;
+	animation: extractplus-progress-slide 1.4s ease-in-out infinite;
 }
 
-@keyframes extract-progress-slide {
+@keyframes extractplus-progress-slide {
 	0% { margin-inline-start: -35%; }
 	100% { margin-inline-start: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.extract-progress-dialog__bar {
+	.extractplus-progress-dialog__bar {
 		transition: none;
 	}
 
-	.extract-progress-dialog__bar--indeterminate {
+	.extractplus-progress-dialog__bar--indeterminate {
 		animation-duration: 3s;
 	}
 }
 
-.extract-progress-dialog__status {
+.extractplus-progress-dialog__status {
 	display: flex;
 	justify-content: space-between;
 	gap: 12px;
@@ -108,7 +108,7 @@ const STYLES = `
 	color: var(--color-text-maxcontrast, #6b6b6b);
 }
 
-.extract-progress-dialog__file {
+.extractplus-progress-dialog__file {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -116,23 +116,23 @@ const STYLES = `
 	text-align: start;
 }
 
-.extract-progress-dialog__percent {
+.extractplus-progress-dialog__percent {
 	flex: 0 0 auto;
 	font-variant-numeric: tabular-nums;
 }
 
-.extract-progress-dialog__error {
+.extractplus-progress-dialog__error {
 	margin: 0;
 	color: var(--color-error, #c74e4e);
 }
 
-.extract-progress-dialog__buttons {
+.extractplus-progress-dialog__buttons {
 	display: flex;
 	justify-content: flex-end;
 	gap: 8px;
 }
 
-.extract-progress-dialog__button {
+.extractplus-progress-dialog__button {
 	min-height: 34px;
 	padding: 0 16px;
 	border: none;
@@ -143,8 +143,8 @@ const STYLES = `
 	font-size: inherit;
 }
 
-.extract-progress-dialog__button:hover,
-.extract-progress-dialog__button:focus-visible {
+.extractplus-progress-dialog__button:hover,
+.extractplus-progress-dialog__button:focus-visible {
 	background-color: var(--color-background-hover, #e5e5e5);
 }
 `
@@ -181,51 +181,51 @@ export class ProgressDialog {
 		ProgressDialog.injectStyles()
 
 		this.dialog = document.createElement('dialog')
-		this.dialog.className = 'extract-progress-dialog'
-		this.dialog.setAttribute('aria-labelledby', 'extract-progress-dialog-title')
+		this.dialog.className = 'extractplus-progress-dialog'
+		this.dialog.setAttribute('aria-labelledby', 'extractplus-progress-dialog-title')
 
 		const content = document.createElement('div')
-		content.className = 'extract-progress-dialog__content'
+		content.className = 'extractplus-progress-dialog__content'
 
 		this.titleEl = document.createElement('h2')
-		this.titleEl.className = 'extract-progress-dialog__title'
-		this.titleEl.id = 'extract-progress-dialog-title'
+		this.titleEl.className = 'extractplus-progress-dialog__title'
+		this.titleEl.id = 'extractplus-progress-dialog-title'
 
 		this.archiveEl = document.createElement('p')
-		this.archiveEl.className = 'extract-progress-dialog__archive'
+		this.archiveEl.className = 'extractplus-progress-dialog__archive'
 
 		this.trackEl = document.createElement('div')
-		this.trackEl.className = 'extract-progress-dialog__track'
+		this.trackEl.className = 'extractplus-progress-dialog__track'
 		this.trackEl.setAttribute('role', 'progressbar')
 		this.trackEl.setAttribute('aria-valuemin', '0')
 		this.trackEl.setAttribute('aria-valuemax', '100')
 
 		this.barEl = document.createElement('div')
-		this.barEl.className = 'extract-progress-dialog__bar'
+		this.barEl.className = 'extractplus-progress-dialog__bar'
 		this.trackEl.appendChild(this.barEl)
 
 		const status = document.createElement('div')
-		status.className = 'extract-progress-dialog__status'
+		status.className = 'extractplus-progress-dialog__status'
 		// Screen readers should hear the phase changes, not every file name.
 		status.setAttribute('aria-live', 'polite')
 
 		this.fileEl = document.createElement('span')
-		this.fileEl.className = 'extract-progress-dialog__file'
+		this.fileEl.className = 'extractplus-progress-dialog__file'
 
 		this.percentEl = document.createElement('span')
-		this.percentEl.className = 'extract-progress-dialog__percent'
+		this.percentEl.className = 'extractplus-progress-dialog__percent'
 
 		status.append(this.fileEl, this.percentEl)
 
 		this.errorEl = document.createElement('p')
-		this.errorEl.className = 'extract-progress-dialog__error'
+		this.errorEl.className = 'extractplus-progress-dialog__error'
 		this.errorEl.hidden = true
 
 		this.buttonsEl = document.createElement('div')
-		this.buttonsEl.className = 'extract-progress-dialog__buttons'
+		this.buttonsEl.className = 'extractplus-progress-dialog__buttons'
 
 		this.closeButton = document.createElement('button')
-		this.closeButton.className = 'extract-progress-dialog__button'
+		this.closeButton.className = 'extractplus-progress-dialog__button'
 		this.closeButton.type = 'button'
 		this.closeButton.addEventListener('click', () => this.close())
 		this.buttonsEl.appendChild(this.closeButton)
@@ -251,13 +251,13 @@ export class ProgressDialog {
 	 * @param archiveName Name of the archive, shown below the title
 	 */
 	open(archiveName: string): void {
-		this.titleEl.textContent = t('extract', 'Extracting archive')
+		this.titleEl.textContent = t('extractplus', 'Extracting archive')
 		this.archiveEl.textContent = archiveName
 		this.errorEl.hidden = true
 		// Closing the dialog only hides it; the extraction keeps running server side.
-		this.closeButton.textContent = t('extract', 'Hide')
+		this.closeButton.textContent = t('extractplus', 'Hide')
 		this.setIndeterminate(true)
-		this.fileEl.textContent = t('extract', 'Preparing…')
+		this.fileEl.textContent = t('extractplus', 'Preparing…')
 		this.percentEl.textContent = ''
 
 		document.body.appendChild(this.dialog)
@@ -274,7 +274,7 @@ export class ProgressDialog {
 			// The archive is unpacked; Nextcloud is indexing the new files now and
 			// cannot report how far along that is.
 			this.setIndeterminate(true)
-			this.fileEl.textContent = t('extract', 'Adding files to Nextcloud…')
+			this.fileEl.textContent = t('extractplus', 'Adding files to Nextcloud…')
 			this.percentEl.textContent = ''
 			return
 		}
@@ -293,7 +293,7 @@ export class ProgressDialog {
 			this.fileEl.textContent = state.currentFile
 			this.fileEl.title = state.currentFile
 		} else if (state.filesTotal > 0) {
-			this.fileEl.textContent = t('extract', '{done} of {total} files', {
+			this.fileEl.textContent = t('extractplus', '{done} of {total} files', {
 				done: String(state.filesDone),
 				total: String(state.filesTotal),
 			})
@@ -311,7 +311,7 @@ export class ProgressDialog {
 		this.barEl.style.width = '100%'
 		this.trackEl.setAttribute('aria-valuenow', '100')
 		this.percentEl.textContent = '100 %'
-		this.fileEl.textContent = t('extract', 'Done')
+		this.fileEl.textContent = t('extractplus', 'Done')
 		setTimeout(() => this.close(), 500)
 	}
 
@@ -323,12 +323,12 @@ export class ProgressDialog {
 	fail(message: string): void {
 		this.setIndeterminate(false)
 		this.barEl.style.width = '0'
-		this.titleEl.textContent = t('extract', 'Extraction failed')
+		this.titleEl.textContent = t('extractplus', 'Extraction failed')
 		this.fileEl.textContent = ''
 		this.percentEl.textContent = ''
 		this.errorEl.textContent = message
 		this.errorEl.hidden = false
-		this.closeButton.textContent = t('extract', 'Close')
+		this.closeButton.textContent = t('extractplus', 'Close')
 		this.closeButton.focus()
 	}
 
@@ -340,7 +340,7 @@ export class ProgressDialog {
 	}
 
 	private setIndeterminate(indeterminate: boolean): void {
-		this.barEl.classList.toggle('extract-progress-dialog__bar--indeterminate', indeterminate)
+		this.barEl.classList.toggle('extractplus-progress-dialog__bar--indeterminate', indeterminate)
 		if (indeterminate) {
 			this.trackEl.removeAttribute('aria-valuenow')
 			this.barEl.style.width = ''

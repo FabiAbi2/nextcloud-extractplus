@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "Kryptering er ikke støttet enda",
     "File not found" : "Finner ikke filen",

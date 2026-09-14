@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "Kol kas šifravimas nepalaikomas",
     "File not found" : "Failas nerastas",

@@ -7,9 +7,9 @@ declare(strict_types=1);
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-namespace OCA\Extract\Listener;
+namespace OCA\ExtractPlus\Listener;
 
-use OCA\Extract\AppInfo\Application;
+use OCA\ExtractPlus\AppInfo\Application;
 use OCA\Files\Event\LoadAdditionalScriptsEvent;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
@@ -27,6 +27,6 @@ final class LoadExtractActions implements IEventListener {
 
 		// The dialog ships its own styles inside the lazily loaded chunk, so
 		// there is no stylesheet to register here.
-		Util::addScript(Application::APP_ID, 'extract-main');
+		Util::addScript(Application::APP_ID, 'extractplus-main');
 	}
 }

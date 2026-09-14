@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "A titkosítás még nem támogatott",
     "File not found" : "A fájl nem található",

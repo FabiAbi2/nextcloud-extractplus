@@ -51,7 +51,7 @@ async function pollProgress(
 	dialog: ProgressDialog,
 	isCancelled: () => boolean,
 ): Promise<void> {
-	const url = generateOcsUrl('/apps/extract/api/v1/extraction/progress/{jobId}', { jobId })
+	const url = generateOcsUrl('/apps/extractplus/api/v1/extraction/progress/{jobId}', { jobId })
 
 	while (!isCancelled()) {
 		await new Promise((resolve) => setTimeout(resolve, POLL_INTERVAL))
@@ -69,7 +69,7 @@ async function pollProgress(
 			}
 
 			if (state.phase === 'error') {
-				dialog.fail(state.error || t('extract', 'Oops something went wrong.'))
+				dialog.fail(state.error || t('extractplus', 'Oops something went wrong.'))
 				return
 			}
 
@@ -81,8 +81,8 @@ async function pollProgress(
 }
 
 export const extractAction = new FileAction({
-	id: 'extract',
-	displayName: () => t('extract', 'Extract here'),
+	id: 'extractplus',
+	displayName: () => t('extractplus', 'Extract here'),
 	iconSvgInline: () => ArchiveArrowUpSvg,
 
 	enabled(nodes: Node[]) {
@@ -123,7 +123,7 @@ export const extractAction = new FileAction({
 		const polling = pollProgress(jobId, dialog, () => finished)
 
 		try {
-			const url = generateOcsUrl('/apps/extract/api/v1/extraction/execute')
+			const url = generateOcsUrl('/apps/extractplus/api/v1/extraction/execute')
 			const { data } = await axios.post(url, {
 				nameOfFile: archiveName,
 				directory: dir,
@@ -137,7 +137,7 @@ export const extractAction = new FileAction({
 			// The server reports a failed extraction in the payload, not with an
 			// HTTP error, so this has to be checked explicitly.
 			if (result.code !== 1 || result.extracted === undefined) {
-				dialog.fail(result.desc || t('extract', 'Oops something went wrong.'))
+				dialog.fail(result.desc || t('extractplus', 'Oops something went wrong.'))
 				return false
 			}
 
@@ -170,7 +170,7 @@ export const extractAction = new FileAction({
 			return true
 		} catch (error) {
 			console.error('Could not send extract request.', error)
-			dialog.fail(t('extract', 'Oops something went wrong.'))
+			dialog.fail(t('extractplus', 'Oops something went wrong.'))
 			return false
 		} finally {
 			finished = true

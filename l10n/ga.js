@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "Ní thacaítear le criptiúchán fós",
     "File not found" : "Comhad gan aimsiú",

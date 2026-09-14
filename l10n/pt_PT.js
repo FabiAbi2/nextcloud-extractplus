@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "File not found" : "Ficheiro não encontrado",
     "Zip extension is not available" : "Não está disponível a extração de ficheiros  com a extensão ZIP",

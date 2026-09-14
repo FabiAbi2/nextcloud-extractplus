@@ -6,14 +6,14 @@ declare(strict_types=1);
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-namespace OCA\Extract;
+namespace OCA\ExtractPlus;
 
 use OCP\App\IAppManager;
 use OCP\Capabilities\IPublicCapability;
 use Override;
 
 /**
- * @psalm-import-type ExtractCapabilities from ResponseDefinitions
+ * @psalm-import-type ExtractplusCapabilities from ResponseDefinitions
  */
 final class Capabilities implements IPublicCapability {
 	public const FEATURES = [
@@ -33,7 +33,7 @@ final class Capabilities implements IPublicCapability {
 
 	/**
 	 * @return array{
-	 *      extract?: ExtractCapabilities,
+	 *      extractplus?: ExtractplusCapabilities,
 	 * }
 	 */
 	#[Override]
@@ -42,11 +42,11 @@ final class Capabilities implements IPublicCapability {
 			'features' => self::FEATURES,
 			'config' => [
 			],
-			'version' => $this->appManager->getAppVersion('extract'),
+			'version' => $this->appManager->getAppVersion('extractplus'),
 		];
 
 		return [
-			'extract' => $capabilities,
+			'extractplus' => $capabilities,
 		];
 	}
 }

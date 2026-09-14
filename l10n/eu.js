@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "Oraindik ez da enkriptatzea onartzen",
     "File not found" : "Ez da fitxategia aurkitu",

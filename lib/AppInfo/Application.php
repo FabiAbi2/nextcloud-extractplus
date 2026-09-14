@@ -5,9 +5,9 @@
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-namespace OCA\Extract\AppInfo;
+namespace OCA\ExtractPlus\AppInfo;
 
-use OCA\Extract\Listener\LoadExtractActions;
+use OCA\ExtractPlus\Listener\LoadExtractActions;
 use OCA\Files\Event\LoadAdditionalScriptsEvent;
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
@@ -17,7 +17,7 @@ use OCP\AppFramework\Bootstrap\IRegistrationContext;
 
 final class Application extends App implements IBootstrap {
 
-	public const APP_ID = 'extract';
+	public const APP_ID = 'extractplus';
 
 	public function __construct() {
 		parent::__construct(self::APP_ID);

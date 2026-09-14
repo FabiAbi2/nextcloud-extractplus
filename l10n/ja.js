@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "暗号化Zipはまだサポートされていません",
     "File not found" : "ファイルが見つかりません",

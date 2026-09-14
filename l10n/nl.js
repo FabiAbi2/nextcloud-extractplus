@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "Versleuteling is nog niet ondersteund",
     "File not found" : "Bestand niet gevonden",

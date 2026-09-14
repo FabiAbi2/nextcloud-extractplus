@@ -1,9 +1,9 @@
 # SPDX-FileCopyrightText: 2025 LibreCode coop and contributors
 # SPDX-License-Identifier: AGPL-3.0-or-later
 version = 1
-SPDX-PackageName = "extract"
+SPDX-PackageName = "extractplus"
 SPDX-PackageSupplier = "LibreCode <contact@librecode.coop>"
-SPDX-PackageDownloadLocation = "https://github.com/LibreCodeCoop/extract"
+SPDX-PackageDownloadLocation = "https://github.com/FabiAbi2/nextcloud-extractplus"
 
 default-license = "AGPL-3.0-or-later"
 default-copyright = "2025 LibreCode coop and contributors"

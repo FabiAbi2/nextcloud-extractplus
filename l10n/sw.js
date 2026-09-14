@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "Usimbaji fiche bado hautumiki",
     "File not found" : "Faili halipatikani",

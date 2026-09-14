@@ -6,7 +6,7 @@ declare(strict_types=1);
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-namespace OCA\Extract\Controller;
+namespace OCA\ExtractPlus\Controller;
 
 use OCP\AppFramework\OCSController;
 

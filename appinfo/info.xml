@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
-    <id>extract</id>
-    <name>Extract</name>
+    <id>extractplus</id>
+    <name>Extract+</name>
     <summary>Extract archive from the web interface</summary>
     <description><![CDATA[Extract archives.
 
@@ -30,15 +30,15 @@
 Extraction runs with a live progress dialog showing the percentage and the file currently being extracted.
 ]]></description>
 
-    <version>3.1.0</version>
+    <version>1.0.0</version>
     <licence>agpl</licence>
     <author mail="paulereverend@gmail.com">Paul Lereverend</author>
-    <namespace>Extract</namespace>
+    <namespace>ExtractPlus</namespace>
     <category>files</category>
     <category>tools</category>
-    <website>https://github.com/PaulLereverend/NextcloudExtract</website>
-    <bugs>https://github.com/PaulLereverend/NextcloudExtract/issues</bugs>
-    <screenshot>https://raw.githubusercontent.com/PaulLereverend/NextcloudExtract/master/img/extract.png</screenshot>
+    <website>https://github.com/FabiAbi2/nextcloud-extractplus</website>
+    <bugs>https://github.com/FabiAbi2/nextcloud-extractplus/issues</bugs>
+    <screenshot>https://raw.githubusercontent.com/FabiAbi2/nextcloud-extractplus/main/img/extract.png</screenshot>
     <dependencies>
         <php min-version="8.2" max-version="8.5"/>
         <nextcloud min-version="31" max-version="34"/>

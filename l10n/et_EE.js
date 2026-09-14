@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "Krüptitud failid pole veel toetatud",
     "File not found" : "Faili ei leidu",

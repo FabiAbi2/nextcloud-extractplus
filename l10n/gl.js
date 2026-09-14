@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "Aínda non se admite a cifraxe",
     "File not found" : "Non se atopou o ficheiro",

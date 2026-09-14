@@ -3,8 +3,13 @@
  - SPDX-License-Identifier: AGPL-3.0-or-later
 -->
 
-# Extract
-Place this app in **nextcloud/apps/**
+# Extract+
+
+A fork of [Extract](https://github.com/PaulLereverend/NextcloudExtract) by
+Paul Lereverend and LibreCode coop, adding a progress dialog to the
+extraction and support for current Nextcloud releases.
+
+Place this app in **nextcloud/apps/extractplus**
 
 This app does only support local external storage backend
 

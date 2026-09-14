@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "File not found" : "Nun s'atopó'l ficheru"
 },

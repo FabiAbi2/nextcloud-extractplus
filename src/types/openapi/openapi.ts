@@ -4,7 +4,7 @@
  */
 
 export type paths = {
-    "/ocs/v2.php/apps/extract/api/{apiVersion}/extraction/execute": {
+    "/ocs/v2.php/apps/extractplus/api/{apiVersion}/extraction/execute": {
         parameters: {
             query?: never;
             header?: never;
@@ -21,7 +21,7 @@ export type paths = {
         patch?: never;
         trace?: never;
     };
-    "/ocs/v2.php/apps/extract/api/{apiVersion}/extraction/progress/{jobId}": {
+    "/ocs/v2.php/apps/extractplus/api/{apiVersion}/extraction/progress/{jobId}": {
         parameters: {
             query?: never;
             header?: never;

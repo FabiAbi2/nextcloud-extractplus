@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "Η κρυπτογράφηση δεν υποστηρίζεται ακόμη",
     "File not found" : "Δε βρέθηκε το αρχείο",

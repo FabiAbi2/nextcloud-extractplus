@@ -7,7 +7,7 @@ declare(strict_types=1);
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-namespace OCA\Extract\Service;
+namespace OCA\ExtractPlus\Service;
 
 use OCP\ICache;
 use OCP\ICacheFactory;
@@ -69,7 +69,7 @@ final class ProgressService {
 	}
 
 	private function fallbackPath(string $key): string {
-		return $this->tempManager->getTempBaseDir() . '/extract-progress-' . $key . '.json';
+		return $this->tempManager->getTempBaseDir() . '/extractplus-progress-' . $key . '.json';
 	}
 
 	/**

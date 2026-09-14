@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "Şifrələmə dəstəklənmir",
     "Zip extension is not available" : "Zip ekstrakt mövcud deyil",

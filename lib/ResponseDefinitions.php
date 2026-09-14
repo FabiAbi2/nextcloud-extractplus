@@ -6,10 +6,10 @@ declare(strict_types=1);
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 
-namespace OCA\Extract;
+namespace OCA\ExtractPlus;
 
 /**
- * @psalm-type ExtractFolder = array{
+ * @psalm-type ExtractplusFolder = array{
  *     fileId: int,
  *     source: string,
  *     root: string,
@@ -19,7 +19,7 @@ namespace OCA\Extract;
  *     mount-type: string,
  *     owner-display-name: ?string,
  * }
- * @psalm-type ExtractProgress = array{
+ * @psalm-type ExtractplusProgress = array{
  *     phase: string,
  *     percent: float,
  *     currentFile: string,
@@ -29,7 +29,7 @@ namespace OCA\Extract;
  *     error: string,
  *     startedAt: int,
  * }
- * @psalm-type ExtractCapabilities = array{
+ * @psalm-type ExtractplusCapabilities = array{
  *     features: list<string>,
  *     config: array{
  *     },

@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "Шифрирање још увек није подржано",
     "File not found" : "Фајл није нађен",

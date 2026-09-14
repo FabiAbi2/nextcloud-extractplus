@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "File not found" : "Skrá finnst ekki",
     "Zip extension is not available" : "Zip-viðaukinn er ekki tiltækur",

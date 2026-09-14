@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "Tzifradura ancora non suportada",
     "File not found" : "Archìviu no agatadu",

@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "Encryption is not supported yet" : "Salaus ei ole vielä tuettu",
     "File not found" : "Tiedostoa ei löytynyt",

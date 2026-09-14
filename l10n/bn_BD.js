@@ -1,5 +1,5 @@
 OC.L10N.register(
-    "extract",
+    "extractplus",
     {
     "File not found" : "ফাইল খুঁজে পাওয়া গেল না"
 },
