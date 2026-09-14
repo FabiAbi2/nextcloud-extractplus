@@ -156,12 +156,6 @@ final class ExtractionService {
 			return ['code' => 0, 'desc' => $this->l->t('Cannot open Rar file')];
 		}
 
-		/**
-		 * The bundled stub declares a RarArchive return type; rar_list() actually
-		 * hands back a list of entries (or false).
-		 *
-		 * @var list<\RarEntry>|false $entries
-		 */
 		$entries = rar_list($archive);
 		if ($entries === false) {
 			rar_close($archive);
