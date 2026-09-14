@@ -13,7 +13,7 @@
 #      adding <app id>/<app id>.csr, and wait for it to be merged (days to weeks)
 #   3. save the issued .crt next to the key as ~/.nextcloud/certificates/<app id>.crt
 #   4. register the app id at https://apps.nextcloud.com/developer/apps/new
-#      using the certificate and the signature this script prints in step 4 mode
+#      using the certificate and the signature `--app-signature` prints
 #   5. build and sign the release with build/package.sh --sign
 #
 # The private key never leaves this machine. Keep it: losing it means losing the
@@ -34,6 +34,16 @@ if [ -z "$APP_ID" ]; then
 	exit 1
 fi
 
+# Git Bash ships MSYS paths ("/c/Users/...") that the native openssl.exe cannot
+# open, so paths are handed over in the form the local openssl understands.
+native_path() {
+	if command -v cygpath >/dev/null 2>&1; then
+		cygpath -w "$1"
+	else
+		printf '%s' "$1"
+	fi
+}
+
 # Mode: print the ownership signature the store's registration form asks for.
 if [ "${1:-}" = "--app-signature" ]; then
 	if [ ! -f "$KEY" ]; then
@@ -41,7 +51,7 @@ if [ "${1:-}" = "--app-signature" ]; then
 		exit 1
 	fi
 	echo "Signature proving ownership of the app id '$APP_ID':"
-	echo -n "$APP_ID" | openssl dgst -sha512 -sign "$KEY" | openssl base64 -A
+	echo -n "$APP_ID" | openssl dgst -sha512 -sign "$(native_path "$KEY")" | openssl base64 -A
 	echo
 	if [ -f "$CRT" ]; then
 		echo
@@ -53,7 +63,7 @@ fi
 
 mkdir -p "$CERT_DIR"
 
-if [ -f "$KEY" ]; then
+if [ -s "$KEY" ]; then
 	echo "A key already exists at $KEY - refusing to overwrite it." >&2
 	echo "Publishing updates depends on this key; delete it by hand if that is really intended." >&2
 	exit 1
@@ -61,8 +71,14 @@ fi
 
 echo "Generating a 4096 bit key and a certificate request for '$APP_ID'"
 
-# The store requires the common name to be exactly the app id.
-openssl req -nodes -newkey rsa:4096 -keyout "$KEY" -out "$CSR" -subj "/CN=$APP_ID"
+# The store requires the common name to be exactly the app id. MSYS_NO_PATHCONV
+# keeps Git Bash from rewriting "/CN=..." into a Windows path; the file
+# arguments are already converted above, so disabling it here is safe.
+MSYS_NO_PATHCONV=1 openssl req -nodes -newkey rsa:4096 \
+	-keyout "$(native_path "$KEY")" \
+	-out "$(native_path "$CSR")" \
+	-subj "/CN=$APP_ID" 2>/dev/null
+
 chmod 600 "$KEY"
 
 echo
