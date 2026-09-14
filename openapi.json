@@ -338,15 +338,6 @@
                 ],
                 "parameters": [
                     {
-                        "name": "jobId",
-                        "in": "path",
-                        "description": "Id the client passed to the execute call",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
                         "name": "apiVersion",
                         "in": "path",
                         "required": true,
@@ -356,6 +347,15 @@
                                 "v1"
                             ],
                             "default": "v1"
+                        }
+                    },
+                    {
+                        "name": "jobId",
+                        "in": "path",
+                        "description": "Id the client passed to the execute call",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
                         }
                     },
                     {

@@ -174,9 +174,9 @@ export interface operations {
                 "OCS-APIRequest": boolean;
             };
             path: {
+                apiVersion: "v1";
                 /** @description Id the client passed to the execute call */
                 jobId: string;
-                apiVersion: "v1";
             };
             cookie?: never;
         };
