@@ -25,7 +25,8 @@ final class LoadExtractActions implements IEventListener {
 			return;
 		}
 
+		// The dialog ships its own styles inside the lazily loaded chunk, so
+		// there is no stylesheet to register here.
 		Util::addScript(Application::APP_ID, 'extract-main');
-		Util::addStyle(Application::APP_ID, 'style');
 	}
 }
