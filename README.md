@@ -76,6 +76,35 @@ sudo rpm -U --quiet p7zip-16.02-10.el6.x86_64.rpm
 sudo rpm -U --quiet p7zip-plugins-16.02-10.el6.x86_64.rpm
 ```
 
+## Progress
+
+Extracting a large archive takes a while. Instead of leaving the browser on a
+silent request, the app opens a dialog that shows the percentage, the file it is
+currently unpacking and the phase it is in. The dialog can be hidden - the
+extraction keeps running on the server - and a failed extraction is shown there
+instead of disappearing into the browser console.
+
+Progress state is kept in the distributed cache when the instance has one
+configured (Redis, Memcached, APCu) and falls back to a file in the temp
+directory otherwise, so no extra setup is required.
+
+## Development
+
+```bash
+npm install
+npm run build          # production bundle into js/
+npm run watch          # rebuild on change
+npm run lint           # eslint
+npm run typescript:check
+composer run lint      # php -l over the sources
+composer run psalm     # static analysis
+```
+
+On Windows, `npm install` also runs `build/patch-vite-config-win.mjs`. It works
+around a bug in `@nextcloud/vite-config` whose license plugin recurses forever at
+the drive root and makes the production build run out of memory. The script is a
+no-op on every other platform.
+
 ## TODO
 
 - Add password support

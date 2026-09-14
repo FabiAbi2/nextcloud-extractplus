@@ -9,6 +9,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 3.1.0
+
+- Show a progress dialog while an archive is extracted, with the percentage,
+  the file currently being unpacked and the current phase
+- Support Nextcloud 31-34 and PHP 8.2-8.5
+- Report failed extractions to the user instead of only to the browser console
+- Accept `7z` and `7zz` instead of requiring `7za`, and detect failures from the
+  exit code rather than from the number of output lines
+- Run extraction tools without a shell
+- Fix jumping to the extracted folder after extraction
+- Fix the production build: the vite entry pointed at a file that no longer
+  exists, and `typescript:check` had no `tsconfig.json` to work with
+
 ## 1.3.6
 
 - NC27 support
