@@ -1,0 +1,6 @@
+# SPDX-FileCopyrightText: 2026 IB Trieb GmbH & Co. KG
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Keep line endings LF everywhere; @stylistic/linebreak-style rejects CRLF and
+# Windows checkouts would otherwise fail linting on files nobody touched.
+* text=auto eol=lf

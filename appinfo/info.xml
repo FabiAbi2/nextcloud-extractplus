@@ -26,9 +26,11 @@
     * p7zip (sudo apt-get install p7zip p7zip-full)
 
 *  **Note :** Encrypted files are not supported yet
+
+Extraction runs with a live progress dialog showing the percentage and the file currently being extracted.
 ]]></description>
 
-    <version>3.0.0</version>
+    <version>3.1.0</version>
     <licence>agpl</licence>
     <author mail="paulereverend@gmail.com">Paul Lereverend</author>
     <namespace>Extract</namespace>
@@ -38,6 +40,7 @@
     <bugs>https://github.com/PaulLereverend/NextcloudExtract/issues</bugs>
     <screenshot>https://raw.githubusercontent.com/PaulLereverend/NextcloudExtract/master/img/extract.png</screenshot>
     <dependencies>
-        <nextcloud min-version="33" max-version="33"/>
+        <php min-version="8.2" max-version="8.5"/>
+        <nextcloud min-version="31" max-version="34"/>
     </dependencies>
 </info>

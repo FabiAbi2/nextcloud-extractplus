@@ -31,6 +31,7 @@ path = [
     "psalm.xml",
     "src/types/openapi/openapi.ts",
     "tests/psalm-baseline.xml",
+    "tsconfig.json",
     "vendor-bin/**/composer.json",
     "vendor-bin/**/composer.lock",
 	".github/pull_request_template.md"

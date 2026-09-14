@@ -31,5 +31,6 @@
 	</issueHandlers>
 	<stubs>
 		<file name="tests/stubs/oc_hooks_emitter.php" />
+		<file name="tests/stubs/rar.php" />
 	</stubs>
 </psalm>

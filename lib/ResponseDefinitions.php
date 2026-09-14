@@ -19,6 +19,16 @@ namespace OCA\Extract;
  *     mount-type: string,
  *     owner-display-name: ?string,
  * }
+ * @psalm-type ExtractProgress = array{
+ *     phase: string,
+ *     percent: float,
+ *     currentFile: string,
+ *     archive: string,
+ *     filesDone: int,
+ *     filesTotal: int,
+ *     error: string,
+ *     startedAt: int,
+ * }
  * @psalm-type ExtractCapabilities = array{
  *     features: list<string>,
  *     config: array{
