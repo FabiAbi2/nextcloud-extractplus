@@ -19,7 +19,8 @@
     "stylelint:fix": "src/**/*.scss src/**/*.css --fix",
     "typescript:check": "tsc --noEmit",
     "typescript:generate": "npx openapi-typescript ./openapi.json -t -o src/types/openapi/openapi.ts",
-    "watch": "vite build --mode development --watch"
+    "watch": "vite build --mode development --watch",
+    "postinstall": "node build/patch-vite-config-win.mjs"
   },
   "browserslist": [
     "extends @nextcloud/browserslist-config"
@@ -36,14 +37,14 @@
     "@nextcloud/browserslist-config": "^3.0.1",
     "@nextcloud/eslint-config": "^9.0.0-rc.5",
     "@nextcloud/stylelint-config": "^3.1.0",
-    "@nextcloud/vite-config": "^2.5.0",
+    "@nextcloud/vite-config": "^2.5.4",
     "esbuild-loader": "^4.3.0",
     "openapi-typescript": "^7.9.1",
     "ts-loader": "^9.5.4",
     "vite": "^7.1.5"
   },
   "engines": {
-    "node": "^22.0.0",
-    "npm": "^10.5.0"
+    "node": "^22.0.0 || ^24.0.0",
+    "npm": "^10.5.0 || ^11.0.0"
   }
 }
